@@ -1,0 +1,4 @@
+{
+    "OTRS_TicketNumberFormat": "Ticket Number Format",
+    "OTRS_TicketNumberFormat_Description": "This should be an array of objects with keys `regex` containing a regex (without slashes), `flags` containing regex flags, and `replacement` containing the new content."
+}
