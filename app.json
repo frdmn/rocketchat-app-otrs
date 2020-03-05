@@ -1,0 +1,15 @@
+{
+    "id": "3377c014-a940-405d-8250-51bfa4cf970f",
+    "version": "0.0.1",
+    "requiredApiVersion": "^1.4.0",
+    "iconFile": "icon.png",
+    "author": {
+        "name": "Jonas Friedmann",
+        "homepage": "https://frd.mn",
+        "support": "https://github.com/frdmn/rocketchat-app-otrs"
+    },
+    "name": "OTRS Integration",
+    "nameSlug": "otrs-integration",
+    "classFile": "OtrsIntegrationApp.ts",
+    "description": "Automatically transforms OTRS ticket IDs into clickable URLs"
+}
