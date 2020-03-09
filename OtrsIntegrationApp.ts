@@ -46,11 +46,7 @@ export class OtrsIntegration extends App implements IPreMessageSentModify {
     public async executePreMessageSentModify(message: IMessage, builder: IMessageBuilder, read: IRead, http: IHttp, persistence: IPersistence): Promise<IMessage> {
         let text = message.text || '';
 
-        Object.keys(this.ticketNumberFormat).forEach((key) => {
-            const filter = this.ticketNumberFormat[key] || {};
-
-            text = text.replace(new RegExp(filter.regex || '', filter.flags || 'gi'), filter.replacement || '');
-        });
+        text = text.replace(new RegExp(this.ticketNumberFormat), 'replace-test');
 
         return builder.setText(text).getMessage();
     }
@@ -59,7 +55,7 @@ export class OtrsIntegration extends App implements IPreMessageSentModify {
         await configuration.settings.provideSetting({
             id: 'ticketNumberFormat',
             type: SettingType.STRING,
-            packageValue: '[\n  {\n    "regex": "rocketchat",\n    "flags": "gi",\n    "replacement": "Rocket.Chat"\n  }\n]',
+            packageValue: '([12]\d{3}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\d{8})',
             required: false,
             public: false,
             multiline: true,
