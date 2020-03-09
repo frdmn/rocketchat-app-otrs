@@ -46,6 +46,8 @@ export class OtrsIntegration extends App implements IPreMessageSentModify {
     public async executePreMessageSentModify(message: IMessage, builder: IMessageBuilder, read: IRead, http: IHttp, persistence: IPersistence): Promise<IMessage> {
         let text = message.text || '';
 
+        this.getLogger().debug('test - getLogger()');
+        console.log('test - getLogger()');
         text = text.replace(new RegExp(this.ticketNumberFormat), 'replace-test');
 
         return builder.setText(text).getMessage();
